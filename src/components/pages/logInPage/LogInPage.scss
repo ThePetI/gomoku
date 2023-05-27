@@ -1,11 +1,17 @@
 @import "/src/styles/variables.scss";
 
 .LogInPage{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
     .errorText{
         color: $errorRed;
         text-align: center;
-        font-size: 18px;
+        font-size: 22px;
         font-weight: bold;
     }
 
@@ -14,11 +20,11 @@
         text-align: center;
 
         .MuiButton-root{
-            width: 130px;
+            width: 180px;
             margin-bottom: 10px;
             border-radius: 10px;
             border-color: $errorRed;
-            font-size: 18px;
+            font-size: 26px;
             font-weight: bold;
             background-color: $errorRed;
             color: $maxWhite;

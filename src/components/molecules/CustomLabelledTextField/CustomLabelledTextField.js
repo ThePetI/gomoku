@@ -7,10 +7,10 @@ function CustomLabelledTextField({ inputText, ...props }) {
   return (
     <div className="CustomLabelledTextField">
       <Grid container justifyContent={"center"}>
-        <Grid item xs={1}>
+        <Grid item xs={5}>
           <Typography className="label">{inputText}</Typography>
         </Grid>
-        <Grid item>
+        <Grid item xs={7}>
           <CustomTextField className="textField" {...props} />
         </Grid>
       </Grid>
