@@ -1,14 +1,17 @@
 import { useState } from "react";
-import LogInPage from "components/pages/logInPage/logInPage";
-import "./mainPage.scss";
-
-const isLoggedIn = false;
+import Typography from "@mui/material/Typography";
+import LogInPage from "components/pages/LogInPage/LogInPage";
+import GamePage from "components/pages/GamePage/GamePage";
+import "./MainPage.scss";
 
 function MainPage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <div className="MainPage">
-      {!isLoggedIn && <LogInPage />}
-      <p className="asd">Edit and save to reload.</p>
+      <Typography className="mainTitle">Gomoku</Typography>
+      {!isLoggedIn && <LogInPage handleLogin={setIsLoggedIn} />}
+      {isLoggedIn && <GamePage />}
     </div>
   );
 }
