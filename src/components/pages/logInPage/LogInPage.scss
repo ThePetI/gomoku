@@ -1,0 +1,35 @@
+@import "/src/styles/variables.scss";
+
+.LogInPage{
+
+    .errorText{
+        color: $errorRed;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .loginButton{
+        padding: 10px;
+        text-align: center;
+
+        .MuiButton-root{
+            width: 130px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border-color: $errorRed;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: $errorRed;
+            color: $maxWhite;
+        }
+
+        .MuiButton-root:hover{
+            border-color: $errorRed;
+            background-color: $maxWhite;
+            color: $errorRed;
+        }
+
+    }
+
+}

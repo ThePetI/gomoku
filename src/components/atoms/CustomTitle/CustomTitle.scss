@@ -1,0 +1,15 @@
+@import "/src/styles/variables.scss";
+
+.CustomTitle{
+    
+    .mainTitle{
+        padding-top: 50px;
+        padding-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "SupplyCenter";
+        font-size: 50px;
+        font-weight: bold;
+        color: $maxWhite;
+    }
+}

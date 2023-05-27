@@ -3,7 +3,9 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CustomLabelledTextField from "components/molecules/CustomLabelledTextField/CustomLabelledTextField";
+import CustomTitle from "components/atoms/CustomTitle/CustomTitle";
 import logInWithUserAndPass from "functions/authentication/Login";
+import "./LogInPage.scss";
 
 function LogInPage({ handleLogin }) {
   const [userName, setUserName] = useState("");
@@ -13,7 +15,7 @@ function LogInPage({ handleLogin }) {
   const logIn = (userName, password) => {
     const result = logInWithUserAndPass(userName, password);
     if (!result) {
-      setErrorText("The username or password is incorrect");
+      setErrorText("The username or password is incorrect!");
       return;
     }
     handleLogin(result);
@@ -21,7 +23,8 @@ function LogInPage({ handleLogin }) {
 
   return (
     <div className="LogInPage">
-      <Grid container direction={"column"}>
+      <CustomTitle titleText={"Gomoku"} />
+      <Grid container direction={"column"} justifyItems={"center"}>
         <Grid item>
           <CustomLabelledTextField
             value={userName}
@@ -39,11 +42,11 @@ function LogInPage({ handleLogin }) {
           />
         </Grid>
         <Grid item>
-          <Typography>{errorText}</Typography>
+          <Typography className="errorText">{errorText}</Typography>
         </Grid>
-        <Grid item>
+        <Grid item className="loginButton">
           <Button
-            variant="contained"
+            variant="outlined"
             onClick={() => {
               logIn(userName, password);
             }}
