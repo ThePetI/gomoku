@@ -1,0 +1,12 @@
+@import "/src/styles/variables.scss";
+
+.GamePage{
+
+    .nextMove{
+        color: $maxWhite;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+}
