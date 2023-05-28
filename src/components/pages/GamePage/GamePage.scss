@@ -1,12 +1,35 @@
 @import "/src/styles/variables.scss";
 
 .GamePage{
+    padding-top: 50px;
 
     .nextMove{
         color: $maxWhite;
         text-align: center;
+        font-family: "SupplyCenter";
         font-size: 30px;
         font-weight: bold;
     }
 
+    .restartButton{
+        padding: 10px;
+        text-align: center;
+
+        .MuiButton-root{
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border-color: $errorRed;
+            font-size: 26px;
+            font-weight: bold;
+            background-color: $errorRed;
+            color: $maxWhite;
+        }
+
+        .MuiButton-root:hover{
+            border-color: $errorRed;
+            background-color: $maxWhite;
+            color: $errorRed;
+        }
+
+    }
 }

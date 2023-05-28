@@ -1,8 +1,13 @@
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+
 function CustomSquare({ value, row, column, board, nextEmblem, handleMove }) {
   const handleChange = (row, column) => {
-    let copy = board.map((object) => ({ ...object }));
-    copy[row][column] = nextEmblem;
-    handleMove(copy);
+    if (board[row][column] === null) {
+      const copy = board.map((object) => ({ ...object }));
+      copy[row][column] = nextEmblem;
+      handleMove(copy);
+    }
   };
 
   return (
@@ -12,9 +17,9 @@ function CustomSquare({ value, row, column, board, nextEmblem, handleMove }) {
         width: "50px",
         height: "50px",
         backgroundColor: "#f64c72",
-        color: "red",
-        boarderColor: "#f64c72",
+        color: "#f64c72",
         border: ".5px solid #f64c72",
+        //padding: "0px",
       }}
       onClick={() => handleChange(row, column)}
     >
@@ -25,9 +30,14 @@ function CustomSquare({ value, row, column, board, nextEmblem, handleMove }) {
           backgroundColor: "#ffffff",
           borderColor: "#ffffff",
           height: 50,
+          textAlign: "center",
         }}
       >
-        <p>{value}</p>
+        <Grid container className="emblem-container">
+          <Grid item>
+            <Typography className="emblem">{value}</Typography>{" "}
+          </Grid>
+        </Grid>
       </div>
     </td>
   );
