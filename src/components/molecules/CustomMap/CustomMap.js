@@ -1,13 +1,13 @@
 import CustomSquare from "components/atoms/CustomSquare/CustomSquare";
 import "./CustomMap.scss";
 
-function CustomMap({ mapSizeX, mapSizeY, board, nextEmblem, handleMove }) {
+function CustomMap({ mapSizeY, mapSizeX, board, nextEmblem, handleMove }) {
   return (
     <table className="CustomMap">
       <tbody>
-        {Array.apply(null, { length: mapSizeX }).map((e, i) => (
+        {Array.apply(null, { length: mapSizeY }).map((e, i) => (
           <tr key={i}>
-            {Array.apply(null, { length: mapSizeY }).map((e, j) => (
+            {Array.apply(null, { length: mapSizeX }).map((e, j) => (
               <CustomSquare
                 key={j}
                 value={board[i][j]}

@@ -2,18 +2,21 @@
 
 .GamePage{
     padding-top: 50px;
+    background-color: $background-blue;
 
     .nextMove{
         color: $maxWhite;
-        text-align: center;
+        text-align: right;
         font-family: "SupplyCenter";
         font-size: 30px;
         font-weight: bold;
+        margin-right: 10px;
     }
 
     .restartButton{
         padding: 10px;
-        text-align: center;
+        text-align: left;
+        margin-left: 70px;
 
         .MuiButton-root{
             margin-bottom: 10px;

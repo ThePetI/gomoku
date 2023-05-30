@@ -3,8 +3,8 @@ import Grid from "@mui/material/Grid";
 
 function CustomSquare({ value, row, column, board, nextEmblem, handleMove }) {
   const handleChange = (row, column) => {
-    if (board[row][column] === null) {
-      const copy = board.map((object) => ({ ...object }));
+    if (board[row][column] === "_") {
+      const copy = board.map((array) => [...array]);
       copy[row][column] = nextEmblem;
       handleMove(copy);
     }

@@ -4,6 +4,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CustomTitle from "components/atoms/CustomTitle/CustomTitle";
 import CustomMap from "components/molecules/CustomMap/CustomMap";
+import { checkWinRow, checkWinDiagonal } from "functions/checkWin/checkWin";
+import { transpose } from "functions/checkWin/matrixOperations";
 import "./GamePage.scss";
 
 function GamePage() {
@@ -11,24 +13,39 @@ function GamePage() {
   const mapSizeY = 10;
   const emblemX = "X";
   const emblemO = "O";
-  const [board, setBoard] = useState(Array(10).fill(Array(10).fill(null)));
+  const [board, setBoard] = useState(
+    Array(mapSizeY).fill(Array(mapSizeX).fill("_"))
+  );
   const [nextPlayer, setNextPlayer] = useState("1");
   const [nextEmblem, setNextEmblem] = useState("X");
+
+  //console.log(board);
 
   const handleMove = (newBoard) => {
     setBoard(newBoard);
     nextPlayer === "1" ? setNextPlayer("2") : setNextPlayer("1");
     nextEmblem === "X" ? setNextEmblem("O") : setNextEmblem("X");
+    checkWin(newBoard);
   };
 
   const restart = () => {
-    setBoard(Array(10).fill(Array(10).fill(null)));
+    setBoard(Array(mapSizeY).fill(Array(mapSizeX).fill("_")));
     setNextPlayer("1");
     setNextEmblem("X");
   };
 
-  console.log(board);
-  //console.log(board[0][0]);
+  const checkWin = (newBoard) => {
+    //Row
+    checkWinRow(newBoard, mapSizeY);
+    //Column (mapSizeX is the mapSizeY here, because of the transpose)
+    checkWinRow(transpose(newBoard), mapSizeX);
+    //Diagonal (its more effective to work with less row)
+    if (mapSizeX >= mapSizeY) {
+      checkWinDiagonal(newBoard, mapSizeY, mapSizeX);
+    } else {
+      checkWinDiagonal(newBoard, mapSizeX, mapSizeY);
+    }
+  };
 
   return (
     <div className="GamePage">
@@ -36,7 +53,7 @@ function GamePage() {
       <Grid container direction={"column"}>
         <Grid item>
           <Grid container>
-            <Grid xs={3.5} />
+            <Grid item xs={3.5} />
             <Grid item xs={2.5}>
               <Typography className="nextMove">
                 Next move:
@@ -54,13 +71,13 @@ function GamePage() {
                 New Game
               </Button>
             </Grid>
-            <Grid xs={3.5} />
+            <Grid item xs={3.5} />
           </Grid>
         </Grid>
         <Grid item>
           <CustomMap
-            mapSizeX={mapSizeX}
             mapSizeY={mapSizeY}
+            mapSizeX={mapSizeX}
             board={board}
             nextEmblem={nextEmblem}
             handleMove={handleMove}
