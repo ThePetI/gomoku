@@ -8,9 +8,7 @@ import { checkWinRow, checkWinDiagonal } from "functions/checkWin/checkWin";
 import { transpose } from "functions/checkWin/matrixOperations";
 import "./GamePage.scss";
 
-function GamePage() {
-  const mapSizeX = 10;
-  const mapSizeY = 10;
+function GamePage({ mapSizeX, mapSizeY }) {
   const emblemX = "X";
   const emblemO = "O";
   const [board, setBoard] = useState(

@@ -1,0 +1,12 @@
+@import "/src/styles/variables.scss";
+
+.SettingsPage{
+
+    .mapSizeRules{
+        margin-top: -10px;
+        text-align: center;
+        color: $errorRed;
+        font-weight: bold;
+        font-size: 20px;
+    }
+}

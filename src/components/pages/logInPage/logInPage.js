@@ -29,6 +29,8 @@ function LogInPage({ handleLogin }) {
           <CustomLabelledTextField
             value={userName}
             inputText={"Username"}
+            textWidthXS={5}
+            inputWidthXS={7}
             type={"text"}
             onChange={(e) => setUserName(e.target.value)}
           />
@@ -37,6 +39,8 @@ function LogInPage({ handleLogin }) {
           <CustomLabelledTextField
             value={password}
             inputText={"Password"}
+            textWidthXS={5}
+            inputWidthXS={7}
             type={"password"}
             onChange={(e) => setPassword(e.target.value)}
           />
