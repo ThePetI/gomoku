@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CustomTitle from "components/atoms/CustomTitle/CustomTitle";
 import CustomMap from "components/molecules/CustomMap/CustomMap";
+import WinnerModal from "components/organisms/WinnerModal/WinnerModal";
 import { checkWinRow, checkWinDiagonal } from "functions/checkWin/checkWin";
 import { transpose } from "functions/checkWin/matrixOperations";
 import "./GamePage.scss";
@@ -16,6 +17,7 @@ function GamePage({ mapSizeX, mapSizeY, handleSettings, players }) {
   const [nextPlayer, setNextPlayer] = useState(`Next move: ${players[0].name}`);
   const [nextEmblem, setNextEmblem] = useState(players[0].emblem);
   const [gameOver, setGameOver] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleMove = (newBoard) => {
     setBoard(newBoard);
@@ -23,6 +25,7 @@ function GamePage({ mapSizeX, mapSizeY, handleSettings, players }) {
     if (isWinner > 0) {
       setNextPlayer(`Winner: ${players[currentPlayerIndex - 1].name}`);
       setGameOver(true);
+      setOpenModal(true);
       return;
     }
     setCurrentPlayerIndex(currentPlayerIndex + 1);
@@ -39,6 +42,7 @@ function GamePage({ mapSizeX, mapSizeY, handleSettings, players }) {
   const restart = () => {
     setBoard(Array(mapSizeY).fill(Array(mapSizeX).fill("_")));
     setGameOver(false);
+    setOpenModal(false);
     setCurrentPlayerIndex(currentPlayerIndex + 1);
     if (players[currentPlayerIndex] !== undefined) {
       setNextPlayer(`Next move: ${players[currentPlayerIndex].name}`);
@@ -104,6 +108,12 @@ function GamePage({ mapSizeX, mapSizeY, handleSettings, players }) {
           />
         </Grid>
       </Grid>
+      <WinnerModal
+        open={openModal}
+        winnerName={players[currentPlayerIndex - 1].name}
+        handleClose={setOpenModal}
+        handleRestart={restart}
+      />
     </div>
   );
 }
