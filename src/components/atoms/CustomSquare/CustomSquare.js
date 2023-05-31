@@ -20,31 +20,32 @@ function CustomSquare({
 
   return (
     <td
+      className="customSquareTd"
       style={{
-        overflow: "hidden",
         width: "50px",
         height: "50px",
-        backgroundColor: "#f64c72",
-        color: "#f64c72",
-        border: ".5px solid #f64c72",
-        //padding: "0px",
       }}
       onClick={() => handleChange(row, column)}
     >
       <div
+        className="customSquareDiv"
         style={{
-          color: "black",
-          border: "1px solid",
-          backgroundColor: "#ffffff",
-          borderColor: "#ffffff",
-          height: 50,
-          textAlign: "center",
-          cursor: !gameOver ? "pointer" : "not-allowed",
+          height: "50px",
+          cursor: gameOver ? "not-allowed" : "pointer",
         }}
       >
         <Grid container className="emblem-container">
           <Grid item>
-            <Typography className="emblem">{value}</Typography>{" "}
+            <Typography
+              style={{
+                width: "50px",
+                height: "50px",
+                fontSize: "58px",
+                marginTop: "-18px",
+              }}
+            >
+              {value !== "_" ? value : ""}
+            </Typography>
           </Grid>
         </Grid>
       </div>

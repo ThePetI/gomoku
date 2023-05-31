@@ -43,7 +43,9 @@ function MapSizeSettings({ mapSizeX, mapSizeY, setMapSizeX, setMapSizeY }) {
           />
         </Grid>
       </Grid>
-      <Typography className="mapSizeRules">Min: 5x5 & Max: 35x35</Typography>
+      <Typography className="mapSizeRules">
+        For the best user experience please dont extend: 50x25 (1080p)
+      </Typography>
     </div>
   );
 }

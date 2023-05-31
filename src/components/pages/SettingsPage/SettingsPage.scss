@@ -1,13 +1,123 @@
 @import "/src/styles/variables.scss";
 
 .SettingsPage{
-    padding-top: 50px;
+    padding-top: 40px;
 
-    .mapSizeRules{
-        margin-top: -10px;
+    .MapSizeSettings{
+
+        .mapSizeRules{
+            margin-top: -10px;
+            text-align: center;
+            color: $errorRed;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .PlayersSettings{
+
+        .players{
+            text-align: center;
+            font-family: "SupplyCenter";
+            font-size: 30px;
+            font-weight: bold;
+            color: $maxWhite;
+        }
+
+        .playerListContainer{
+            margin-top: 5px;
+            margin-bottom: 10px;
+
+            .playerList{
+                font-size: 25px;
+                font-weight: bold;
+                color: $maxWhite;
+            }
+        }
+
+        .removeButton{
+            text-align: left;
+            margin-left: -20px !important;
+
+            .MuiButton-root{
+                margin-top: 2px;
+                border-radius: 10px;
+                border-color: $errorRed;
+                font-size: 12px;
+                font-weight: bold;
+                background-color: $errorRed;
+                color: $maxWhite;
+            }
+
+            .MuiButton-root:hover{
+                border-color: $errorRed;
+                background-color: $maxWhite;
+                color: $errorRed;
+            }
+
+        }
+
+        .addPlayercontainer{
+            margin-top: 30px;
+
+            .addButton{
+                text-align: left;
+                padding-left: 18px;
+
+                .MuiButton-root{
+                    margin-bottom: 10px;
+                    border-radius: 10px;
+                    border-color: $errorRed;
+                    font-size: 26px;
+                    font-weight: bold;
+                    background-color: $errorRed;
+                    color: $maxWhite;
+                }
+
+                .MuiButton-root:hover{
+                    border-color: $errorRed;
+                    background-color: $maxWhite;
+                    color: $errorRed;
+                }
+
+            }
+        }
+    }
+
+    .startButton{
         text-align: center;
+
+        .MuiButton-root{
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border-color: $errorRed;
+            font-size: 26px;
+            font-weight: bold;
+            background-color: $errorRed;
+            color: $maxWhite;
+        }
+
+        .MuiButton-root:hover{
+            border-color: $errorRed;
+            background-color: $maxWhite;
+            color: $errorRed;
+        }
+    }
+
+    .errorMsg{
         color: $errorRed;
+        text-align: center;
+        font-size: 22px;
         font-weight: bold;
-        font-size: 20px;
+        padding-bottom: 40px;
+    }
+
+    .errorMsgPlayer{
+        color: $errorRed;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
     }
 }

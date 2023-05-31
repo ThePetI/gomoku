@@ -6,9 +6,10 @@ import "./MainPage.scss";
 
 function MainPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isSettingsDone, setIsSettingsDone] = useState(true);
+  const [isSettingsDone, setIsSettingsDone] = useState(false);
   const [mapSizeX, setMapSizeX] = useState(15);
   const [mapSizeY, setMapSizeY] = useState(15);
+  const [players, setPlayers] = useState([]);
 
   return (
     <div className="MainPage">
@@ -20,12 +21,15 @@ function MainPage() {
           mapSizeY={mapSizeY}
           setMapSizeX={setMapSizeX}
           setMapSizeY={setMapSizeY}
+          players={players}
+          handlePlayers={setPlayers}
         />
       )}
       {isLoggedIn && isSettingsDone && (
         <GamePage
           mapSizeX={mapSizeX}
           mapSizeY={mapSizeY}
+          players={players}
           handleSettings={setIsSettingsDone}
         />
       )}

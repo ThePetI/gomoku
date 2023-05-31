@@ -8,37 +8,46 @@ import { checkWinRow, checkWinDiagonal } from "functions/checkWin/checkWin";
 import { transpose } from "functions/checkWin/matrixOperations";
 import "./GamePage.scss";
 
-function GamePage({ mapSizeX, mapSizeY, handleSettings }) {
-  const emblemX = "X";
-  const emblemO = "O";
+function GamePage({ mapSizeX, mapSizeY, handleSettings, players }) {
   const [board, setBoard] = useState(
     Array(mapSizeY).fill(Array(mapSizeX).fill("_"))
   );
-  const [nextPlayer, setNextPlayer] = useState("1");
-  const [nextEmblem, setNextEmblem] = useState("X");
+  const [currentPlayerIndex, setCurrentPlayerIndex] = useState(1);
+  const [nextPlayer, setNextPlayer] = useState(`Next move: ${players[0].name}`);
+  const [nextEmblem, setNextEmblem] = useState(players[0].emblem);
   const [gameOver, setGameOver] = useState(false);
-
-  //console.log(board);
 
   const handleMove = (newBoard) => {
     setBoard(newBoard);
     const isWinner = checkWin(newBoard);
     if (isWinner > 0) {
-      setNextPlayer("Winner: Player 1");
+      setNextPlayer(`Winner: ${players[currentPlayerIndex - 1].name}`);
       setGameOver(true);
       return;
     }
-    nextPlayer === "1"
-      ? setNextPlayer("Next move: Player 2")
-      : setNextPlayer("Next move: Player 1");
-    nextEmblem === "X" ? setNextEmblem("O") : setNextEmblem("X");
+    setCurrentPlayerIndex(currentPlayerIndex + 1);
+    if (players[currentPlayerIndex] !== undefined) {
+      setNextPlayer(`Next move: ${players[currentPlayerIndex].name}`);
+      setNextEmblem(players[currentPlayerIndex].emblem);
+    } else {
+      setNextPlayer(`Next move: ${players[0].name}`);
+      setNextEmblem(players[0].emblem);
+      setCurrentPlayerIndex(1);
+    }
   };
 
   const restart = () => {
     setBoard(Array(mapSizeY).fill(Array(mapSizeX).fill("_")));
     setGameOver(false);
-    setNextPlayer("Next move: Player 1");
-    setNextEmblem("X");
+    setCurrentPlayerIndex(currentPlayerIndex + 1);
+    if (players[currentPlayerIndex] !== undefined) {
+      setNextPlayer(`Next move: ${players[currentPlayerIndex].name}`);
+      setNextEmblem(players[currentPlayerIndex].emblem);
+    } else {
+      setNextPlayer(`Next move: ${players[0].name}`);
+      setNextEmblem(players[0].emblem);
+      setCurrentPlayerIndex(1);
+    }
   };
 
   const checkWin = (newBoard) => {

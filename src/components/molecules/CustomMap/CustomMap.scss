@@ -1,16 +1,26 @@
+@import "/src/styles/variables.scss";
+
 .CustomMap{
     margin: auto;
     margin-top: -40px;
-    padding-bottom: 100px;
+    padding-bottom: 69px;
     
     .emblem-container{
         text-align: center;
+    }
 
-        .emblem{
-            margin-top: -18px !important;
-            height: 50px;
-            width: 50px;
-            font-size: 60px;
-        }
+    .customSquareTd{
+        overflow: hidden;
+        background-color: $errorRed;
+        color: $errorRed;
+        border: 0.5px solid $errorRed;
+    }
+
+    .customSquareDiv{
+        color: $maxBlack;
+        border: 1px solid $maxWhite;
+        background-color: $maxWhite;
+        text-align: center;
+        text-transform: uppercase;
     }
 }
