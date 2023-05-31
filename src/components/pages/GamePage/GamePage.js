@@ -8,7 +8,7 @@ import { checkWinRow, checkWinDiagonal } from "functions/checkWin/checkWin";
 import { transpose } from "functions/checkWin/matrixOperations";
 import "./GamePage.scss";
 
-function GamePage({ mapSizeX, mapSizeY }) {
+function GamePage({ mapSizeX, mapSizeY, handleSettings }) {
   const emblemX = "X";
   const emblemO = "O";
   const [board, setBoard] = useState(
@@ -16,33 +16,41 @@ function GamePage({ mapSizeX, mapSizeY }) {
   );
   const [nextPlayer, setNextPlayer] = useState("1");
   const [nextEmblem, setNextEmblem] = useState("X");
+  const [gameOver, setGameOver] = useState(false);
 
   //console.log(board);
 
   const handleMove = (newBoard) => {
     setBoard(newBoard);
-    nextPlayer === "1" ? setNextPlayer("2") : setNextPlayer("1");
+    const isWinner = checkWin(newBoard);
+    if (isWinner > 0) {
+      setNextPlayer("Winner: Player 1");
+      setGameOver(true);
+      return;
+    }
+    nextPlayer === "1"
+      ? setNextPlayer("Next move: Player 2")
+      : setNextPlayer("Next move: Player 1");
     nextEmblem === "X" ? setNextEmblem("O") : setNextEmblem("X");
-    checkWin(newBoard);
   };
 
   const restart = () => {
     setBoard(Array(mapSizeY).fill(Array(mapSizeX).fill("_")));
-    setNextPlayer("1");
+    setGameOver(false);
+    setNextPlayer("Next move: Player 1");
     setNextEmblem("X");
   };
 
   const checkWin = (newBoard) => {
+    let isWinner = false;
     //Row
-    checkWinRow(newBoard, mapSizeY);
+    isWinner += checkWinRow(newBoard, mapSizeY);
     //Column (mapSizeX is the mapSizeY here, because of the transpose)
-    checkWinRow(transpose(newBoard), mapSizeX);
+    isWinner += checkWinRow(transpose(newBoard), mapSizeX);
     //Diagonal (its more effective to work with less row)
-    if (mapSizeX >= mapSizeY) {
-      checkWinDiagonal(newBoard, mapSizeY, mapSizeX);
-    } else {
-      checkWinDiagonal(newBoard, mapSizeX, mapSizeY);
-    }
+    return mapSizeX >= mapSizeY
+      ? isWinner + checkWinDiagonal(newBoard, mapSizeY, mapSizeX)
+      : isWinner + checkWinDiagonal(newBoard, mapSizeX, mapSizeY);
   };
 
   return (
@@ -50,26 +58,30 @@ function GamePage({ mapSizeX, mapSizeY }) {
       <CustomTitle titleText={"Gomoku"} />
       <Grid container direction={"column"}>
         <Grid item>
+          <Grid item>
+            <Typography className="nextMove">{nextPlayer}</Typography>
+          </Grid>
           <Grid container>
-            <Grid item xs={3.5} />
-            <Grid item xs={2.5}>
-              <Typography className="nextMove">
-                Next move:
-                <br />
-                Player {nextPlayer}
-              </Typography>
+            <Grid item xs={6} className="gameButton settings">
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  handleSettings(false);
+                }}
+              >
+                Change settings
+              </Button>
             </Grid>
-            <Grid item xs={2.5} className="restartButton">
+            <Grid item xs={6} className="gameButton">
               <Button
                 variant="outlined"
                 onClick={() => {
                   restart();
                 }}
               >
-                New Game
+                Start New Game
               </Button>
             </Grid>
-            <Grid item xs={3.5} />
           </Grid>
         </Grid>
         <Grid item>
@@ -79,6 +91,7 @@ function GamePage({ mapSizeX, mapSizeY }) {
             board={board}
             nextEmblem={nextEmblem}
             handleMove={handleMove}
+            gameOver={gameOver}
           />
         </Grid>
       </Grid>

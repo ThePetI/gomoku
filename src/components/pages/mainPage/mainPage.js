@@ -6,9 +6,9 @@ import "./MainPage.scss";
 
 function MainPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isSettingsDone, setIsSettingsDone] = useState(false);
-  const [mapSizeX, setMapSizeX] = useState(10);
-  const [mapSizeY, setMapSizeY] = useState(10);
+  const [isSettingsDone, setIsSettingsDone] = useState(true);
+  const [mapSizeX, setMapSizeX] = useState(15);
+  const [mapSizeY, setMapSizeY] = useState(15);
 
   return (
     <div className="MainPage">
@@ -23,7 +23,11 @@ function MainPage() {
         />
       )}
       {isLoggedIn && isSettingsDone && (
-        <GamePage mapSizeX={mapSizeX} mapSizeY={mapSizeY} />
+        <GamePage
+          mapSizeX={mapSizeX}
+          mapSizeY={mapSizeY}
+          handleSettings={setIsSettingsDone}
+        />
       )}
     </div>
   );

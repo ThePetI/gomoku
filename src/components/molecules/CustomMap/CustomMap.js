@@ -1,7 +1,14 @@
 import CustomSquare from "components/atoms/CustomSquare/CustomSquare";
 import "./CustomMap.scss";
 
-function CustomMap({ mapSizeY, mapSizeX, board, nextEmblem, handleMove }) {
+function CustomMap({
+  mapSizeY,
+  mapSizeX,
+  board,
+  nextEmblem,
+  handleMove,
+  gameOver,
+}) {
   return (
     <table className="CustomMap">
       <tbody>
@@ -16,6 +23,7 @@ function CustomMap({ mapSizeY, mapSizeX, board, nextEmblem, handleMove }) {
                 board={board}
                 nextEmblem={nextEmblem}
                 handleMove={handleMove}
+                gameOver={gameOver}
               />
             ))}
           </tr>

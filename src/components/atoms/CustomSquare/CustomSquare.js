@@ -1,9 +1,17 @@
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
-function CustomSquare({ value, row, column, board, nextEmblem, handleMove }) {
+function CustomSquare({
+  value,
+  row,
+  column,
+  board,
+  nextEmblem,
+  handleMove,
+  gameOver,
+}) {
   const handleChange = (row, column) => {
-    if (board[row][column] === "_") {
+    if (board[row][column] === "_" && !gameOver) {
       const copy = board.map((array) => [...array]);
       copy[row][column] = nextEmblem;
       handleMove(copy);
@@ -31,6 +39,7 @@ function CustomSquare({ value, row, column, board, nextEmblem, handleMove }) {
           borderColor: "#ffffff",
           height: 50,
           textAlign: "center",
+          cursor: !gameOver ? "pointer" : "not-allowed",
         }}
       >
         <Grid container className="emblem-container">

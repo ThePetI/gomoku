@@ -7,7 +7,7 @@ export function checkWinRow(newBoard, mapSizeY) {
     row = newBoard[i].join();
     allRow = allRow + "_" + row;
   }
-  checkWinFinal(allRow);
+  return checkWinFinal(allRow);
 }
 
 export function checkWinDiagonal(newBoard, mapSizeY, mapSizeX) {
@@ -21,7 +21,7 @@ export function checkWinDiagonal(newBoard, mapSizeY, mapSizeX) {
       allRow = allRow + "_" + row;
     }
   }
-  checkWinFinal(allRow);
+  return checkWinFinal(allRow);
 }
 
 export function checkWinFinal(allRow) {
@@ -41,8 +41,8 @@ export function checkWinFinal(allRow) {
       occurences = 1;
     }
     if (occurences === 5) {
-      console.log("gg");
-      break;
+      return true;
     }
   }
+  return false;
 }
