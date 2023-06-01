@@ -33,6 +33,13 @@
                 font-size: 25px;
                 font-weight: bold;
                 color: $maxWhite;
+
+                @media screen and (min-width: 1745px) {
+                    &.player{
+                        padding-left: 45px;
+                  }
+                }
+
             }
         }
 

@@ -83,7 +83,9 @@ function PlayersSettings({ players, handlePlayers }) {
               className="playerListContainer"
             >
               <Grid item sm={5} md={4} lg={3} xl={2.5}>
-                <Typography className={"playerList"}>{player.name}</Typography>
+                <Typography className={"playerList player"}>
+                  {player.name}
+                </Typography>
               </Grid>
               <Grid item sm={1} md={0.8} lg={0.5} xl={0.5}>
                 <Typography className={"playerList"}>
