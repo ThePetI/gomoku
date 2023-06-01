@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CustomTitle from "components/atoms/CustomTitle/CustomTitle";
 import MapSizeSettings from "components/organisms/MapSizeSettings/MapSizeSettings";
+import MAPSIZEPARAMS from "consts/mapSizeParams";
 import PlayersSettings from "components/organisms/PlayersSettings/PlayersSettings";
 import "./SettingsPage.scss";
 
@@ -15,6 +16,7 @@ function SettingsPage({
   setMapSizeY,
   players,
   handlePlayers,
+  handleMapSizeParams,
 }) {
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -27,10 +29,18 @@ function SettingsPage({
       setErrorMsg("The board size must be at least 5x5!");
       return;
     }
-    /*if (mapSizeX > 57 || mapSizeY > 25) {
-      setErrorMsg("The maximum board size is 57x25!");
-      return;
-    }*/
+    let mapParams = undefined;
+    if (mapSizeY <= 15) {
+      mapParams = MAPSIZEPARAMS.find((mapsize) => mapsize.mapSizeY === 15);
+    } else if (mapSizeY >= 24) {
+      mapParams = MAPSIZEPARAMS.find((mapsize) => mapsize.mapSizeY === 25);
+    } else {
+      mapParams = MAPSIZEPARAMS.find(
+        (mapsize) =>
+          mapsize.mapSizeY === mapSizeY || mapsize.mapSizeY === mapSizeY + 1
+      );
+    }
+    handleMapSizeParams(mapParams);
     handleSettings(true);
   };
 

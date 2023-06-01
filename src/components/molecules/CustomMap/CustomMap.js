@@ -4,6 +4,7 @@ import "./CustomMap.scss";
 function CustomMap({
   mapSizeY,
   mapSizeX,
+  mapSizeParams,
   board,
   nextEmblem,
   handleMove,
@@ -21,6 +22,7 @@ function CustomMap({
                 row={i}
                 column={j}
                 board={board}
+                mapSizeParams={mapSizeParams}
                 nextEmblem={nextEmblem}
                 handleMove={handleMove}
                 gameOver={gameOver}

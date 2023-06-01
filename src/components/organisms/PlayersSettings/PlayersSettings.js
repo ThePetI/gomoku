@@ -82,10 +82,10 @@ function PlayersSettings({ players, handlePlayers }) {
               justifyContent={"center"}
               className="playerListContainer"
             >
-              <Grid item xs={2.5}>
+              <Grid item sm={5} md={4} lg={3} xl={2.5}>
                 <Typography className={"playerList"}>{player.name}</Typography>
               </Grid>
-              <Grid item xs={0.5}>
+              <Grid item sm={1} md={0.8} lg={0.5} xl={0.5}>
                 <Typography className={"playerList"}>
                   {player.emblem}
                 </Typography>

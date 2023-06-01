@@ -6,6 +6,7 @@ function CustomSquare({
   row,
   column,
   board,
+  mapSizeParams,
   nextEmblem,
   handleMove,
   gameOver,
@@ -22,15 +23,15 @@ function CustomSquare({
     <td
       className="customSquareTd"
       style={{
-        width: "50px",
-        height: "50px",
+        width: mapSizeParams.size,
+        height: mapSizeParams.size,
       }}
       onClick={() => handleChange(row, column)}
     >
       <div
         className="customSquareDiv"
         style={{
-          height: "50px",
+          height: mapSizeParams.size,
           cursor: gameOver ? "not-allowed" : "pointer",
         }}
       >
@@ -38,10 +39,10 @@ function CustomSquare({
           <Grid item>
             <Typography
               style={{
-                width: "50px",
-                height: "50px",
-                fontSize: "58px",
-                marginTop: "-18px",
+                width: mapSizeParams.size,
+                height: mapSizeParams.size,
+                fontSize: mapSizeParams.fontSize,
+                marginTop: mapSizeParams.marginTop,
               }}
             >
               {value !== "_" ? value : ""}

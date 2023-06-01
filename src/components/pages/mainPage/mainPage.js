@@ -7,8 +7,9 @@ import "./MainPage.scss";
 function MainPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSettingsDone, setIsSettingsDone] = useState(false);
-  const [mapSizeX, setMapSizeX] = useState(15);
-  const [mapSizeY, setMapSizeY] = useState(15);
+  const [mapSizeX, setMapSizeX] = useState(10);
+  const [mapSizeY, setMapSizeY] = useState(10);
+  const [mapSizeParams, setMapSizeParams] = useState(undefined);
   const [players, setPlayers] = useState([]);
 
   return (
@@ -23,12 +24,14 @@ function MainPage() {
           setMapSizeY={setMapSizeY}
           players={players}
           handlePlayers={setPlayers}
+          handleMapSizeParams={setMapSizeParams}
         />
       )}
       {isLoggedIn && isSettingsDone && (
         <GamePage
           mapSizeX={mapSizeX}
           mapSizeY={mapSizeY}
+          mapSizeParams={mapSizeParams}
           players={players}
           handleSettings={setIsSettingsDone}
         />

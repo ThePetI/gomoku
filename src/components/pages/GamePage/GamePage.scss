@@ -6,39 +6,49 @@
     width:fit-content;
     margin: auto;
 
-    .nextMove{
-        color: $maxWhite;
-        text-align: center;
-        font-family: "SupplyCenter";
-        font-size: 30px;
-        font-weight: bold;
-        margin-right: 10px;
-        margin-top: -30px;
+    .menuContainer{
+        height: 120px;
+
+        .nextMove{
+            color: $maxWhite;
+            text-align: center;
+            font-family: "SupplyCenter";
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .gameButton{
+            margin-top: -20px;
+            padding-right: 10px;
+            text-align: left;
+            padding-left: 18px;
+    
+            &.settings {
+                text-align: right !important;
+            }
+    
+            .MuiButton-root{
+                margin-bottom: 10px;
+                border-radius: 10px;
+                border-color: $errorRed;
+                font-size: 26px;
+                font-weight: bold;
+                background-color: $errorRed;
+                color: $maxWhite;
+            }
+    
+            .MuiButton-root:hover{
+                border-color: $errorRed;
+                background-color: $maxWhite;
+                color: $errorRed;
+            }
+        }
     }
 
-    .gameButton{
-        padding: 10px;
-        text-align: left;
-        padding-left: 18px;
-
-        &.settings {
-            text-align: right !important;
-        }
-
-        .MuiButton-root{
-            margin-bottom: 10px;
-            border-radius: 10px;
-            border-color: $errorRed;
-            font-size: 26px;
-            font-weight: bold;
-            background-color: $errorRed;
-            color: $maxWhite;
-        }
-
-        .MuiButton-root:hover{
-            border-color: $errorRed;
-            background-color: $maxWhite;
-            color: $errorRed;
-        }
+    @media screen and (max-width: 959px) {
+        .menuContainer{
+            margin-bottom: 25px;
+      }
     }
 }

@@ -9,7 +9,13 @@ import { checkWinRow, checkWinDiagonal } from "functions/checkWin/checkWin";
 import { transpose } from "functions/checkWin/matrixOperations";
 import "./GamePage.scss";
 
-function GamePage({ mapSizeX, mapSizeY, handleSettings, players }) {
+function GamePage({
+  mapSizeX,
+  mapSizeY,
+  handleSettings,
+  players,
+  mapSizeParams,
+}) {
   const [board, setBoard] = useState(
     Array(mapSizeY).fill(Array(mapSizeX).fill("_"))
   );
@@ -70,10 +76,7 @@ function GamePage({ mapSizeX, mapSizeY, handleSettings, players }) {
     <div className="GamePage">
       <CustomTitle titleText={"Gomoku"} />
       <Grid container direction={"column"}>
-        <Grid item>
-          <Grid item>
-            <Typography className="nextMove">{nextPlayer}</Typography>
-          </Grid>
+        <Grid item className="menuContainer">
           <Grid container>
             <Grid item xs={6} className="gameButton settings">
               <Button
@@ -96,11 +99,15 @@ function GamePage({ mapSizeX, mapSizeY, handleSettings, players }) {
               </Button>
             </Grid>
           </Grid>
+          <Grid item>
+            <Typography className="nextMove">{nextPlayer}</Typography>
+          </Grid>
         </Grid>
         <Grid item>
           <CustomMap
             mapSizeY={mapSizeY}
             mapSizeX={mapSizeX}
+            mapSizeParams={mapSizeParams}
             board={board}
             nextEmblem={nextEmblem}
             handleMove={handleMove}
