@@ -10,14 +10,16 @@ function CustomMap({
   handleMove,
   gameOver,
 }) {
+  const keyY = [...Array(mapSizeY).keys()];
+  const keyX = [...Array(mapSizeX).keys()];
   return (
     <table className="CustomMap">
       <tbody>
         {Array.apply(null, { length: mapSizeY }).map((e, i) => (
-          <tr key={i}>
+          <tr key={keyY[i]}>
             {Array.apply(null, { length: mapSizeX }).map((e, j) => (
               <CustomSquare
-                key={j}
+                key={keyX[j]}
                 value={board[i][j]}
                 row={i}
                 column={j}

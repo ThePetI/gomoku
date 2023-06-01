@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CustomTitle from "components/atoms/CustomTitle/CustomTitle";
 import MapSizeSettings from "components/organisms/MapSizeSettings/MapSizeSettings";
-import MAPSIZEPARAMS from "consts/mapSizeParams";
+import setMapParams from "functions/setMapParams/setMapParams";
 import PlayersSettings from "components/organisms/PlayersSettings/PlayersSettings";
 import "./SettingsPage.scss";
 
@@ -29,18 +29,7 @@ function SettingsPage({
       setErrorMsg("The board size must be at least 5x5!");
       return;
     }
-    let mapParams = undefined;
-    if (mapSizeY <= 15) {
-      mapParams = MAPSIZEPARAMS.find((mapsize) => mapsize.mapSizeY === 15);
-    } else if (mapSizeY >= 24) {
-      mapParams = MAPSIZEPARAMS.find((mapsize) => mapsize.mapSizeY === 25);
-    } else {
-      mapParams = MAPSIZEPARAMS.find(
-        (mapsize) =>
-          mapsize.mapSizeY === mapSizeY || mapsize.mapSizeY === mapSizeY + 1
-      );
-    }
-    handleMapSizeParams(mapParams);
+    handleMapSizeParams(setMapParams(mapSizeX, mapSizeY));
     handleSettings(true);
   };
 
