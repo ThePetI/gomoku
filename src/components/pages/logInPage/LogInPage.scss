@@ -8,6 +8,14 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 
+    .username{
+        .CustomLabelledTextField{
+            .label{
+                margin-right: 10px;
+            }
+        }
+    }
+
     .errorText{
         color: $errorRed;
         text-align: center;

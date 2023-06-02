@@ -66,11 +66,11 @@ function PlayersSettings({ players, handlePlayers }) {
       <Grid container direction={"column"} justifyContent={"center"}>
         <Grid item>
           <Grid container justifyContent={"center"} gap={15}>
-            <Grid item>
+            <Grid item xs={3.3} sm={4.4} md={"auto"}>
               <Typography className="players">Player</Typography>
             </Grid>
-            <Grid item>
-              <Typography className="players">Emblem</Typography>
+            <Grid item xs={3.3} sm={4.4} md={"auto"}>
+              <Typography className="players emblems">Emblem</Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -82,13 +82,13 @@ function PlayersSettings({ players, handlePlayers }) {
               justifyContent={"center"}
               className="playerListContainer"
             >
-              <Grid item sm={5} md={4} lg={3} xl={2.5}>
+              <Grid item xs={6} sm={7} md={5} lg={3.5} xl={2.5}>
                 <Typography className={"playerList player"}>
                   {player.name}
                 </Typography>
               </Grid>
-              <Grid item sm={1} md={0.8} lg={0.5} xl={0.5}>
-                <Typography className={"playerList"}>
+              <Grid item xs={1} sm={1} md={0.8} lg={0.5} xl={0.5}>
+                <Typography className={"playerList emblem"}>
                   {player.emblem}
                 </Typography>
               </Grid>
@@ -106,10 +106,10 @@ function PlayersSettings({ players, handlePlayers }) {
         <Grid item>
           <Grid
             container
-            className="addPlayercontainer"
+            className="addPlayerContainer"
             justifyContent={"center"}
           >
-            <Grid item>
+            <Grid item xs={12} sm={12} md={"auto"}>
               <CustomLabelledTextField
                 value={newPlayerName}
                 label={"Name:"}
@@ -120,7 +120,7 @@ function PlayersSettings({ players, handlePlayers }) {
                 onChange={(e) => handleChangePlayerName(e.target.value)}
               />
             </Grid>
-            <Grid item>
+            <Grid item xs={12} sm={12} md={"auto"}>
               <CustomLabelledTextField
                 value={newPlayerEmblem}
                 label={"Emblem:"}

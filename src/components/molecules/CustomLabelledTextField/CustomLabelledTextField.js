@@ -3,19 +3,14 @@ import Typography from "@mui/material/Typography";
 import CustomTextField from "components/atoms/CustomTextField/CustomTextField";
 import "./CustomLabelledTextField.scss";
 
-function CustomLabelledTextField({
-  textWidthXS,
-  inputWidthXS,
-  inputwidth,
-  ...props
-}) {
+function CustomLabelledTextField({ inputwidth, ...props }) {
   return (
     <div className="CustomLabelledTextField">
       <Grid container justifyContent={"center"}>
-        <Grid item xs={textWidthXS ?? undefined}>
+        <Grid item>
           <Typography className="label">{props.label}</Typography>
         </Grid>
-        <Grid item xs={inputWidthXS ?? undefined}>
+        <Grid item>
           <CustomTextField
             className="textField"
             {...props}

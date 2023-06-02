@@ -37,6 +37,12 @@
                 background-color: $errorRed;
                 color: $maxWhite;
             }
+
+            @media screen and (max-width: 900px) {
+                .MuiButton-root{
+                    font-size: 20px;
+                }
+            }
     
             .MuiButton-root:hover{
                 border-color: $errorRed;

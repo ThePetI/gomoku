@@ -25,11 +25,15 @@ function SettingsPage({
       setErrorMsg("At least 2 players are required!");
       return;
     }
-    if (mapSizeX < 5 || mapSizeY < 5) {
+    if (mapSizeX === "" || mapSizeY === "") {
+      setErrorMsg("Please add a valid board size!");
+      return;
+    }
+    if (parseInt(mapSizeX) < 5 || parseInt(mapSizeY) < 5) {
       setErrorMsg("The board size must be at least 5x5!");
       return;
     }
-    handleMapSizeParams(setMapParams(mapSizeX, mapSizeY));
+    handleMapSizeParams(setMapParams(parseInt(mapSizeX), parseInt(mapSizeY)));
     handleSettings(true);
   };
 

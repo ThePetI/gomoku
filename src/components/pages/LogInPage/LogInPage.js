@@ -25,12 +25,10 @@ function LogInPage({ handleLogin }) {
     <div className="LogInPage">
       <CustomTitle titleText={"Gomoku"} />
       <Grid container direction={"column"} justifyItems={"center"}>
-        <Grid item>
+        <Grid item className={"username"}>
           <CustomLabelledTextField
             value={userName}
             label={"Username"}
-            textWidthXS={5}
-            inputWidthXS={7}
             type={"text"}
             InputLabelProps={{ shrink: false }}
             onChange={(e) => setUserName(e.target.value)}
@@ -40,8 +38,6 @@ function LogInPage({ handleLogin }) {
           <CustomLabelledTextField
             value={password}
             label={"Password"}
-            textWidthXS={5}
-            inputWidthXS={7}
             type={"password"}
             InputLabelProps={{ shrink: false }}
             onChange={(e) => setPassword(e.target.value)}

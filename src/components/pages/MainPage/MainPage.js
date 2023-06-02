@@ -29,8 +29,8 @@ function MainPage() {
       )}
       {isLoggedIn && isSettingsDone && (
         <GamePage
-          mapSizeX={mapSizeX}
-          mapSizeY={mapSizeY}
+          mapSizeX={parseInt(mapSizeX)}
+          mapSizeY={parseInt(mapSizeY)}
           mapSizeParams={mapSizeParams}
           players={players}
           handleSettings={setIsSettingsDone}
