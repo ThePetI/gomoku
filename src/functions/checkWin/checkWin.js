@@ -14,11 +14,21 @@ export function checkWinDiagonal(newBoard, mapSizeY, mapSizeX) {
   let diagonalRows = null;
   let allRow = "";
   let row = "";
-  for (let i = 4; i < mapSizeY - 4; i++) {
-    for (let j = 0; j < mapSizeX; j++) {
-      diagonalRows = diagonals(newBoard, i, j, mapSizeX);
-      row = diagonalRows[0].join() + diagonalRows[1].join();
-      allRow = allRow + "_" + row;
+  if (mapSizeY < 9) {
+    for (let i = 2; i < mapSizeY - 2; i++) {
+      for (let j = 0; j < mapSizeX; j++) {
+        diagonalRows = diagonals(newBoard, i, j, mapSizeX);
+        row = diagonalRows[0].join() + diagonalRows[1].join();
+        allRow = allRow + "_" + row;
+      }
+    }
+  } else {
+    for (let i = 4; i < mapSizeY - 4; i++) {
+      for (let j = 0; j < mapSizeX; j++) {
+        diagonalRows = diagonals(newBoard, i, j, mapSizeX);
+        row = diagonalRows[0].join() + diagonalRows[1].join();
+        allRow = allRow + "_" + row;
+      }
     }
   }
   return checkWinFinal(allRow);
