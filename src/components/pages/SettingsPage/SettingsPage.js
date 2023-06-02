@@ -30,7 +30,7 @@ function SettingsPage({
       return;
     }
     if (parseInt(mapSizeX) < 5 || parseInt(mapSizeY) < 5) {
-      setErrorMsg("The board size must be at least 5x5!");
+      setErrorMsg("The board size must be at least 5x5 individually!");
       return;
     }
     handleMapSizeParams(setMapParams(parseInt(mapSizeX), parseInt(mapSizeY)));
