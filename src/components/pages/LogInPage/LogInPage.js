@@ -28,20 +28,22 @@ function LogInPage({ handleLogin }) {
         <Grid item>
           <CustomLabelledTextField
             value={userName}
-            inputText={"Username"}
+            label={"Username"}
             textWidthXS={5}
             inputWidthXS={7}
             type={"text"}
+            InputLabelProps={{ shrink: false }}
             onChange={(e) => setUserName(e.target.value)}
           />
         </Grid>
         <Grid item>
           <CustomLabelledTextField
             value={password}
-            inputText={"Password"}
+            label={"Password"}
             textWidthXS={5}
             inputWidthXS={7}
             type={"password"}
+            InputLabelProps={{ shrink: false }}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Grid>

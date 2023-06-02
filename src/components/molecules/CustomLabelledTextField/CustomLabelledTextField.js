@@ -4,7 +4,6 @@ import CustomTextField from "components/atoms/CustomTextField/CustomTextField";
 import "./CustomLabelledTextField.scss";
 
 function CustomLabelledTextField({
-  inputText,
   textWidthXS,
   inputWidthXS,
   inputwidth,
@@ -14,7 +13,7 @@ function CustomLabelledTextField({
     <div className="CustomLabelledTextField">
       <Grid container justifyContent={"center"}>
         <Grid item xs={textWidthXS ?? undefined}>
-          <Typography className="label">{inputText}</Typography>
+          <Typography className="label">{props.label}</Typography>
         </Grid>
         <Grid item xs={inputWidthXS ?? undefined}>
           <CustomTextField

@@ -112,20 +112,22 @@ function PlayersSettings({ players, handlePlayers }) {
             <Grid item>
               <CustomLabelledTextField
                 value={newPlayerName}
-                inputText={"Name:"}
+                label={"Name:"}
                 inputwidth={"300px"}
                 type={"text"}
                 inputProps={{ maxLength: 15 }}
+                InputLabelProps={{ shrink: false }}
                 onChange={(e) => handleChangePlayerName(e.target.value)}
               />
             </Grid>
             <Grid item>
               <CustomLabelledTextField
                 value={newPlayerEmblem}
-                inputText={"Emblem:"}
+                label={"Emblem:"}
                 inputwidth={"60px"}
                 type={"text"}
                 inputProps={{ maxLength: 1 }}
+                InputLabelProps={{ shrink: false }}
                 onChange={(e) => handleChangePlayerEmblem(e.target.value)}
               />
             </Grid>

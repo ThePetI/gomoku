@@ -27,18 +27,20 @@ function MapSizeSettings({ mapSizeX, mapSizeY, setMapSizeX, setMapSizeY }) {
         <Grid item>
           <CustomLabelledTextField
             value={mapSizeX}
-            inputText={"Map Size"}
+            label={"Map Size"}
             inputwidth={"62px"}
             type={"text"}
+            InputLabelProps={{ shrink: false }}
             onChange={(e) => handleChangeX(e.target.value)}
           />
         </Grid>
         <Grid item>
           <CustomLabelledTextField
             value={mapSizeY}
-            inputText={"X"}
+            label={"X"}
             inputwidth={"62px"}
             type={"text"}
+            InputLabelProps={{ shrink: false }}
             onChange={(e) => handleChangeY(e.target.value)}
           />
         </Grid>
