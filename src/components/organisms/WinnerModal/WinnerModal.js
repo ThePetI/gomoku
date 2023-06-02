@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import variables from "styles/variables.scss";
 
 function WinnerModal({ open, handleClose, handleRestart, winnerName }) {
   const styleBox = {
@@ -11,30 +12,31 @@ function WinnerModal({ open, handleClose, handleRestart, winnerName }) {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 500,
-    bgcolor: "#262cbe",
-    border: "2px solid #ffffff",
+    bgcolor: variables.backgroundBlue,
+    border: "2px solid",
+    borderColor: variables.maxWhite,
     borderRadius: "20px",
     boxShadow: 24,
     p: 4,
   };
 
   const styleButton = {
-    bgcolor: "#f64c72",
-    border: "#f64c72",
+    bgcolor: variables.errorRed,
+    border: variables.errorRed,
     borderRadius: "5px",
     marginTop: "10px",
     marginBottom: "-15px",
-    color: "#ffffff",
+    color: variables.maxWhite,
     fontWeight: "bold",
     fontSize: "18px",
     "&:hover": {
-      color: "#f64c72",
-      bgcolor: "#ffffff",
+      color: variables.errorRed,
+      bgcolor: variables.maxWhite,
     },
   };
 
   const styleTitle = {
-    color: "#ffffff",
+    color: variables.maxWhite,
     fontFamily: "SupplyCenter",
     fontSize: "25px",
     textAlign: "center",
@@ -43,7 +45,7 @@ function WinnerModal({ open, handleClose, handleRestart, winnerName }) {
   };
 
   const stylePlayer = {
-    color: "#ffffff",
+    color: variables.maxWhite,
     fontFamily: "SupplyCenter",
     fontSize: winnerName.length > 9 ? "24px" : "40px",
     textAlign: "center",

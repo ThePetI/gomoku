@@ -1,5 +1,11 @@
-$background-blue: #262cbe;
+$backgroundBlue: #262cbe;
 $maxWhite:  #E5E4E2;
 $maxBlack: #000000;
 $errorRed: #f64c72;
 
+:export {
+    backgroundBlue: $backgroundBlue;
+    maxWhite: $maxWhite;
+    maxBlack: $maxBlack;
+    errorRed: $errorRed;
+  }
