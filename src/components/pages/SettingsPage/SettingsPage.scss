@@ -31,57 +31,66 @@
             }
         }
 
-        .playerListContainer{
-            margin-top: 5px;
-            margin-bottom: 10px;
+        .playerListContainerContainer{
 
-            .playerList{
-                font-size: 25px;
-                font-weight: bold;
-                color: $maxWhite;
+            .playerListContainer{
+                margin-top: 5px;
+                margin-bottom: 10px;
+
+                .playerList{
+                    font-size: 25px;
+                    font-weight: bold;
+                    color: $maxWhite;
+
+                    @media screen and (max-width: 1745px) {
+                        &.player{
+                            margin-left: -30px;
+                            font-size: 16px;
+                        }
+                    &.emblem{
+                        font-size: 16px;
+                        }
+                    }
+
+                }
+            }
+
+            .removeButton{
+                text-align: left;
+                margin-left: -20px !important;
+
+                .MuiButton-root{
+                    margin-top: 2px;
+                    border-radius: 10px;
+                    border-color: $errorRed;
+                    font-size: 12px;
+                    font-weight: bold;
+                    background-color: $errorRed;
+                    color: $maxWhite;
+                }
 
                 @media screen and (max-width: 1745px) {
-                    &.player{
-                        margin-left: -30px;
-                        font-size: 16px;
+                    .MuiButton-root{
+                        font-size: 10px;
+                        padding: 0px !important;
+                        margin-right: -40px !important;
+                        margin-left: 10px;
                     }
-                  &.emblem{
-                    font-size: 16px;
-                    }
+                }
+
+                .MuiButton-root:hover{
+                    border-color: $errorRed;
+                    background-color: $maxWhite;
+                    color: $errorRed;
                 }
 
             }
         }
 
-        .removeButton{
-            text-align: left;
-            margin-left: -20px !important;
-
-            .MuiButton-root{
-                margin-top: 2px;
-                border-radius: 10px;
-                border-color: $errorRed;
-                font-size: 12px;
-                font-weight: bold;
-                background-color: $errorRed;
-                color: $maxWhite;
+        @media screen and (max-width: 1199px) {
+            .playerListContainerContainer{
+                min-height: 30px !important;
             }
-
-            @media screen and (max-width: 1745px) {
-                .MuiButton-root{
-                    font-size: 10px;
-                    padding: 0px !important;
-                    margin-right: -40px !important;
-                    margin-left: 10px;
-                }
-            }
-
-            .MuiButton-root:hover{
-                border-color: $errorRed;
-                background-color: $maxWhite;
-                color: $errorRed;
-            }
-
         }
 
         .addPlayerContainer{
@@ -119,7 +128,7 @@
             }
         }
 
-        @media screen and (max-width: 1199px) {
+        @media screen and (max-width: 899px) {
             .addPlayerContainer{
                 margin-top: -18px !important;
             }

@@ -74,7 +74,7 @@ function PlayersSettings({ players, handlePlayers }) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item>
+        <Grid item className="playerListContainerContainer">
           {players.map((player, index) => (
             <Grid
               key={player.id}
